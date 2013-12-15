@@ -1,0 +1,22 @@
+﻿@model PlannerLib.Business.BEvent
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Event_Update", "Home", FormMethod.Post, 
+    new{ 
+        @id = "EventUpdate_" + Model.Event_ID,
+        @class="EventUpdate PartialUpdateForm"
+    })){
+    @Model.Event_ID_Rules.Update.HtmlInput(Model.Event_ID)
+    @Model.username_Rules.Update.HtmlInput(Model.username)
+    @Model.Name_Rules.Update.HtmlInput(Model.Name)
+    @Model.Description_Rules.Update.HtmlInput(Model.Description)
+    @Model.Date_Rules.Update.HtmlInput(Model.Date)
+    @Model.Description_Rules.Update.HtmlInput(Model.Description)
+    @Model.Start_Time_Rules.Update.HtmlInput(Model.Start_Time)
+    @Model.End_Time_Rules.Update.HtmlInput(Model.End_Time)
+    
+    <input type="submit" value="Update Event" />
+}

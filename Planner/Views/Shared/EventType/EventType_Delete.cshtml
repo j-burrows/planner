@@ -1,0 +1,15 @@
+﻿@model PlannerLib.Business.BEvent_Type
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Event_Type_Delete", "Home", FormMethod.Post, 
+    new{ 
+        @id = "EventTypeDelete_" + Model.Event_Type_ID,
+        @class="EventTypeDelete PartialUpdateForm"
+    })){
+    @Model.Event_Type_ID_Rules.Delete.HtmlInput(Model.Event_Type_ID)
+    
+    <input type="submit" value="Delete Event Type" />
+}

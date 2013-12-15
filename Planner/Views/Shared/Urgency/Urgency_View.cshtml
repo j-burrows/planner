@@ -1,0 +1,13 @@
+﻿@model PlannerLib.Business.BUrgency
+
+@{Model.Format();}
+
+<section id="UrgencyView_@Model.Urgency_ID" class="UrgencyView">
+    Name: @Model.Name
+    <br />
+    Level: @Model.Level
+    <br />
+    Description:
+    <br />
+    @Model.Description
+</section>

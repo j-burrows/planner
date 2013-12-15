@@ -1,0 +1,18 @@
+﻿@model PlannerLib.Business.BUrgency
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Urgency_Update", "Home", FormMethod.Post, 
+    new{
+        @id = "UrgencyUpdate_" + Model.Urgency_ID,
+        @class="UrgencyUpdate PartialUpdateForm"
+    })){
+    @Model.Urgency_ID_Rules.Update.HtmlInput(Model.Urgency_ID)
+    @Model.Name_Rules.Update.HtmlInput(Model.Name)
+    @Model.Level_Rules.Update.HtmlInput(Model.Level)
+    @Model.Description_Rules.Update.HtmlInput(Model.Description)
+    
+    <input type="submit" value="Update Urgency" />
+}

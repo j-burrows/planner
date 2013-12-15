@@ -1,0 +1,15 @@
+﻿@model PlannerLib.Business.BEvent
+
+@{Model.Format();}
+
+<section id="EventView_@Model.Event_ID" class="EventView">
+    Event name: @Model.Name
+    <br />
+    Description: @Model.Description
+    <br />
+    Occurs on: @Model.Date.ToString()
+    <br />
+    Starts at: @Model.Date.TimeOfDay.ToString()
+    <br />
+    Ends at: @Model.Date.TimeOfDay.ToString()
+</section>

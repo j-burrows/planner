@@ -1,0 +1,17 @@
+﻿@model PlannerLib.Business.BEvent_Type
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Event_Type_Update", "Home", FormMethod.Post, 
+    new{ 
+        @id = "EventTypeUpdate_" + Model.Event_Type_ID,
+        @class="EventTypeUpdate PartialUpdateForm"
+    })){
+    @Model.Event_Type_ID_Rules.Update.HtmlInput(Model.Event_Type_ID)
+    @Model.Name_Rules.Update.HtmlInput(Model.Name)
+    @Model.Description_Rules.Update.HtmlInput(Model.Description)
+    
+    <input type="submit" value="Update Event Type" />
+}

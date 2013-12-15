@@ -1,0 +1,22 @@
+﻿@model PlannerLib.Business.BEvent
+@using Mailbox.Helpers
+@using Repository.Business.Protocols;
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Event_Create", "Home", FormMethod.Post, 
+    new{ 
+        @id = "EventCreate_" + Model.Event_ID,
+        @class="EventCreate PartialUpdateForm"
+    })){
+    @Model.Event_ID_Rules.Create.HtmlInput(Model.Event_ID)
+    @Model.username_Rules.Create.HtmlInput(Model.username)
+    @Model.Name_Rules.Create.HtmlInput(Model.Name)
+    @Model.Description_Rules.Create.HtmlInput(Model.Description)
+    @Model.Date_Rules.Create.HtmlInput(Model.Date)
+    @Model.Description_Rules.Create.HtmlInput(Model.Description)
+    @Model.Start_Time_Rules.Create.HtmlInput(Model.Start_Time)
+    @Model.End_Time_Rules.Create.HtmlInput(Model.End_Time)
+    
+    <input type="submit" value="Create Event" />
+}

@@ -1,0 +1,15 @@
+﻿@model PlannerLib.Business.BUrgency
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using(Html.BeginForm("Urgency_Delete", "Home", FormMethod.Post, 
+    new{
+        @id = "UrgencyDelete_" + Model.Urgency_ID,
+        @class="UrgencyDelete PartialUpdateForm"
+    })){
+    @Model.Urgency_ID_Rules.Delete.HtmlInput(Model.Urgency_ID)
+    
+    <input type="submit" value="Delete Urgency" />
+}
